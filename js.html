@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Javascript tasks</title>
+</head>
+
+<body>
+    <!-- <p id="para"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex accusamus harum quibusdam delectus ipsa
+        nulla
+        excepturi quasi officia nesciunt fugit.</p> -->
+    <div>
+        <p id="para">Hey whatsapp</p>
+        <button onclick=changecolor()>Click Me.</button>
+    </div>
+    <div style="margin-top: 10px;">
+        <button onclick="this.innerHTML=Date()">The time is..</button>
+        <p id="demo"></p>
+    </div>
+    <form id="loginform">
+        <div style="margin-top: 20px;">
+            <label for="">Email:</label>
+            <input type="text" id="email" placeholder="Enter your email:">
+            <p id="emailerror" style="color: red;"></p>
+        </div>
+        <div style="margin-top: 20px;">
+            <button type="submit">Log In</button>
+        </div>
+    </form>
+</body>
+<script>
+    //  function displayDate(){
+    //      document.getElementById("demo").innerHTML= Date();
+    //  }
+    document.getElementById("loginform").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const error = document.getElementById("emailerror");
+
+
+        if (email === "") {
+            error.textContent = "Please enter email.";
+            return;
+        }
+
+
+        if (!email.includes("@")) {
+            error.textContent = "Invalid email address.";
+            return;
+        }
+
+        // If everything is OK
+        error.textContent = "";
+        alert("Login successful!");
+    });
+
+    function changecolor() {
+        document.getElementById("para").style.backgroundColor = "lightblue";
+
+    }
+</script>
+
+
+<!-- // var age = 7;
+
+        // if (age > 10) {
+        //     console.log('You are  not a kid');
+        // }
+        // else 
+        // { console.log('Your are a kid ') 
+
+        // }
+
+        // function addNumbers() {
+        //     let number1 = parseFloat(document.getElementById("num1").value);
+        //     let number2 = parseFloat(document.getElementById("num2").value);
+        //     let sum = number1 + number2;
+        //     alert("The sum is: " + sum);
+        // }
+// var arr= [ 1,2,3,4,5,6,7,8 ];
+// console.log(arr);
+// for(i=0; i< arr.length;i++){
+//     console.log(arr[i]);
+// } -->
+
+
+
+
+
+</body>
+<!-- <script>
+    // alert("This site might be harmful for you.");
+
+</script> -->
+
+</html>
