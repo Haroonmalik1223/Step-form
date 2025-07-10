@@ -10,158 +10,184 @@
     <link rel="stylesheet" href="stepform.css">
 
 </head>
+<style>
+    @media (min-width:600px) and (max-width:768px) {
+        .step-forms {
+            width: 500px !important;
+        }
+    }
+
+    @media (min-width:320px) and (max-width:600px) {
+        .step-forms {
+            width: 100% !important;
+        }
+    }
+</style>
 
 <body>
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div id="step1" class="step-forms d-block shadow">
-            <div id="step-form1" class="bg-white">
-                <div class="text-center mb-4">
-                    <h2>Multi Step Form</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName" class="form-label">First Name:</label>
-                        <input type="text" id="firstName" class="form-select" placeholder="Enter first name">
+        <!-- step 1 -->
+        <form id="loginform">
+            <div id="step1" class="step-forms d-block shadow">
+                <div id="step-form1" class="bg-white">
+                    <div class="text-center mb-4">
+                        <h2>Multi Step Form</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName" class="form-label">Last Name:</label>
-                        <input type="text" id="lastName" class="form-control" placeholder="Enter last name">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="email" id="email" class="form-control" placeholder="Enter your Email">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">First Name:</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="Enter first name">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">Last Name:</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="Enter last name">
+                        </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label for="gender" class="form-label">Gender:</label>
-                        <input type="text" id="gender" class="form-control" placeholder="Enter your Gender">
-                    </div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your Email">
+                            <p id="formerror" class="text-danger mt-3"></p>
 
-                <div class="text-end mt-3">
-                    <button onclick="showNext('step1','step2')" class="btn btn-primary">NEXT</button>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Password:</label>
+                            <input type="text" id="password" class="form-control" placeholder="Enter your Password">
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">NEXT</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- step 2 -->
-        <div id="step2" class="step-forms shadow d-none">
-            <div id="step-form1" class="bg-white">
-                <div class="text-center mb-4">
-                    <h2>Multi Step Form</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName" class="form-label">Date of birth:</label>
-                        <input type="text" class="form-control" placeholder="mm/dd/yy">
+        </form>
+        <!-- step 2  -->
+        <form id="loginform2">
+            <div id="step2" class="step-forms shadow d-none">
+                <div id="step-form1" class="bg-white">
+                    <div class="text-center mb-4">
+                        <h2>Multi Step Form</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName" class="form-label">Teen or Adult</label>
-                        <input type="text" class="form-control" placeholder="">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Date of birth:</label>
+                            <input type="text" id="DOB" class="form-control" placeholder="mm/dd/yy">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Teen or Adult</label>
+                            <input type="text" id="TorA" class="form-control" placeholder="">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="email" class="form-label">Phone number:</label>
-                        <input type="email" class="form-control" placeholder="xxxxxxxxxxxx">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Phone number:</label>
+                            <input type="text" id="phonenumber" class="form-control" placeholder="xxxxxxxxxxxx">
+                            <p id="formerror2" class="text-danger mt-3"></p>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Code:</label>
+                            <input type="text" id="code" class="form-control" placeholder="xxxx">
+                        </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label for="gender" class="form-label">Code:</label>
-                        <input type="text" class="form-control" placeholder="xxxx">
+                    <div class="text-end mt-3">
+                        <button type="submit" onclick="showPrevious('step2', 'step1')"
+                            class="btn btn-dark">Previous</button>
+                        <button type="submit" class="btn btn-primary">Next</button>
+
                     </div>
-                </div>
-
-                <div class="text-end mt-3">
-                    <button onclick="showPrevious('step2', 'step1')" class="btn btn-dark">Previous</button>
-                    <button onclick="showNext('step2', 'step3')" class="btn btn-primary">Next</button>
-
                 </div>
             </div>
-        </div>
+        </form>
         <!-- step 3 -->
-
-        <div id="step3" class="step-forms shadow d-none">
-            <div id="step-form3" class="bg-white">
-                <div class="text-center mb-4">
-                    <h2>Multi Step Form</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName" class="form-label">Country:</label>
-                        <input type="text" class="form-control" placeholder="">
+        <form id="loginform3">
+            <div id="step3" class="step-forms shadow d-none ">
+                <div id="step-form3" class="bg-white">
+                    <div class="text-center mb-4">
+                        <h2>Multi Step Form</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName" class="form-label">City:</label>
-                        <input type="text" class="form-control" placeholder="">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Country:</label>
+                            <input type="text" id="Country" class="form-control" placeholder="">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">City:</label>
+                            <input type="text" id="City" class="form-control" placeholder="">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="email" class="form-label">Area:</label>
-                        <input type="email" class="form-control" placeholder="">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Area:</label>
+                            <input type="text" id="Area" class="form-control" placeholder="">
+                            <p id="formerror3" class="text-danger mt-3"></p>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Postel Code:</label>
+                            <input type="text" id="postelcode" class="form-control" placeholder="xxxx">
+                        </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label for="gender" class="form-label">Postel Code:</label>
-                        <input type="text" class="form-control" placeholder="xxxx">
+                    <div class="text-end">
+                        <button type="submit" onclick="showPrevious('step3', 'step2')"
+                            class="btn btn-dark">Previous</button>
+                        <button type="submit" class="btn btn-primary">Next</button>
+
                     </div>
-                </div>
-
-                <div class="text-end mt-3">
-                    <button onclick="showPrevious('step3', 'step2')" class="btn btn-dark">Previous</button>
-                    <button onclick="showNext('step3', 'step4')" class="btn btn-primary">Next</button>
-
                 </div>
             </div>
-        </div>
-
+        </form>
         <!-- step 4 -->
-        <div id="step4" class="step-forms shadow d-none">
-            <div id="step-form4" class="bg-white">
-                <div class="text-center mb-4">
-                    <h2>Multi Step Form</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 mb-3">
-                        <label for="firstName" class="form-label">Address:</label>
-                        <input type="text" class="form-control" placeholder="house/St/Area.....">
-                    </div>
-                    <div class="text-center">
-                        <h3>About us</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis porro totam minus accusantium
-                            perferendis quo similique voluptatem laudantium deleniti. Et.</p>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="fs-5" required />
-                        <label for="">I agree all the terms.</label>
+        <form id="loginform4">
+            <div id="step4" class="step-forms shadow d-none">
+                <div id="step-form4" class="bg-white">
+                    <div class="text-center mb-4">
+                        <h2>Multi Step Form</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     </div>
 
-                </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Address:</label>
+                            <input type="text" id="address" class="form-control" placeholder="Enter address">
 
-                <div class="text-end mt-3">
-                    <button onclick="showPrevious('step4', 'step3')" class="btn btn-dark">Previous</button>
-                    <button onclick="alert('Successfull')" class="btn btn-success">Submit</button>
+                        </div>
+                        <div class="text-center">
+                            <h3>About us</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis porro totam minus
+                                accusantium
+                                perferendis quo similique voluptatem laudantium deleniti. Et.</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="checkbox" class="fs-5">
+                            <label for="">I agree all the terms.</label>
+                            <p id="formerror4" class="text-danger mt-3+"></p>
+                        </div>
 
+                    </div>
+
+                    <div class="text-end">
+                        <button onclick="showPrevious('step4', 'step3')" class="btn btn-dark">Previous</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
 
                 </div>
             </div>
-        </div>
-
-
-
+        </form>
     </div>
 
 </body>
@@ -192,6 +218,114 @@
         prev.classList.remove("d-none");
         prev.classList.add("d-block");
     }
+
+    // login form 1
+    document.getElementById("loginform").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const error = document.getElementById("formerror");
+
+        // Clear old error
+        error.textContent = "";
+
+        // Validation
+        if (!firstName || !lastName || !email || !password) {
+            error.textContent = "Please fill all the details.";
+            return;
+        }
+
+        if (firstName.length < 3) {
+            error.textContent = "First name must be at least 3 characters.";
+            return;
+        }
+
+        if (!email.includes("@gmail.com")) {
+            error.textContent = "Invalid email address.";
+            return;
+        }
+
+
+        showNext("step1", "step2");
+    });
+    // login form2
+    document.getElementById("loginform2").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const DOB = document.getElementById("DOB").value.trim();
+        const TorA = document.getElementById("TorA").value.trim();
+        const phonenumber = document.getElementById("phonenumber").value.trim();
+        const code = document.getElementById("code").value.trim();
+        const error = document.getElementById("formerror2");
+
+        // Clear old error
+        error.textContent = "";
+
+        // Validation
+        if (!DOB || !TorA || !phonenumber || !code) {
+            error.textContent = "Please fill all the details.";
+            return;
+        }
+
+        if (phonenumber.length !== 11 || !/^\d{11}$/.test(phonenumber)) {
+            error.textContent = "Please enter correct 11-digit number.";
+            return;
+        }
+        if (code.length !== 4 || !/^\d{4}$/.test(code)) {
+            error.textContent = "Enter 4 digit code";
+            return;
+        }
+
+        showNext("step2", "step3");
+
+    });
+
+    // login form3
+    document.getElementById("loginform3").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const Country = document.getElementById("Country").value.trim();
+        const City = document.getElementById("City").value.trim();
+        const Area = document.getElementById("Area").value.trim();
+        const postelcode = document.getElementById("postelcode").value.trim();
+        const error = document.getElementById("formerror3");
+
+        error.textContent = "";
+
+        if (!Country || !City || !Area || !postelcode) {
+            error.textContent = "Please fill all the details.";
+            return;
+        }
+
+        if (postelcode.length !== 5 || !/^\d{5}$/.test(postelcode)) {
+            error.textContent = "Please enter a correct 5-digit postal code.";
+            return;
+        }
+
+
+        showNext("step3", "step4");
+    });
+
+    // login form4
+
+    document.getElementById("loginform4").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const address = document.getElementById("address").value.trim();
+        const checkbox = document.getElementById("checkbox");
+        const error = document.getElementById("formerror4");
+
+        if (address && checkbox.checked) {
+            alert('Successful');
+            document.getElementById
+        } else {
+            error.textContent = "PLease fill the address and agree our terms.";
+        }
+        // showPrevious("step4", "step1");
+
+    });
 
 
 </script>
