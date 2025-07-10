@@ -40,11 +40,13 @@
                         <div class="col-md-6 mb-3">
                             <label for="firstName" class="form-label">First Name:</label>
                             <input type="text" id="firstName" class="form-control" placeholder="Enter first name">
+
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="lastName" class="form-label">Last Name:</label>
                             <input type="text" id="lastName" class="form-control" placeholder="Enter last name">
+
                         </div>
                     </div>
 
@@ -52,13 +54,14 @@
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email:</label>
                             <input type="email" id="email" class="form-control" placeholder="Enter your Email">
-                            <p id="formerror" class="text-danger mt-3"></p>
+                            <p id="formerror" class="fs-5 text-danger mt-3"></p>
 
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Password:</label>
                             <input type="text" id="password" class="form-control" placeholder="Enter your Password">
+
                         </div>
                     </div>
                     <div class="text-end">
@@ -91,7 +94,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Phone number:</label>
                             <input type="text" id="phonenumber" class="form-control" placeholder="xxxxxxxxxxxx">
-                            <p id="formerror2" class="text-danger mt-3"></p>
+                            <p id="formerror2" class="fs-5 text-danger mt-3"></p>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -133,7 +136,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Area:</label>
                             <input type="text" id="Area" class="form-control" placeholder="">
-                            <p id="formerror3" class="text-danger mt-3"></p>
+                            <p id="formerror3" class="fs-5 text-danger mt-3"></p>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -175,7 +178,7 @@
                         <div>
                             <input type="checkbox" id="checkbox" class="fs-5">
                             <label for="">I agree all the terms.</label>
-                            <p id="formerror4" class="text-danger mt-3+"></p>
+                            <p id="formerror4" class="fs-5 text-danger mt-3"></p>
                         </div>
 
                     </div>
@@ -238,8 +241,12 @@
             return;
         }
 
-        if (firstName.length < 3) {
-            error.textContent = "First name must be at least 3 characters.";
+        if (firstName.length < 3 || lastName.length < 3) {
+            error.textContent = "First and last name must be at least 3 characters long.";
+            return;
+        }
+        if (password.length < 7 || password.length > 8) {
+            error.textContent = "Password length should be 7 to 8 characters.";
             return;
         }
 
@@ -319,9 +326,19 @@
 
         if (address && checkbox.checked) {
             alert('Successful');
-            document.getElementById
-        } else {
-            error.textContent = "PLease fill the address and agree our terms.";
+
+            document.querySelectorAll("form").forEach(form => form.reset());
+
+            document.getElementById("step4").classList.remove("d-block");
+            document.getElementById("step4").classList.add("d-none");
+
+            document.getElementById("step1").classList.remove("d-none");
+            document.getElementById("step1").classList.add("d-block");
+
+            error.textContent = "";
+        }
+        else {
+            error.textContent = "Please fill the address and agree our terms.";
         }
         // showPrevious("step4", "step1");
 
